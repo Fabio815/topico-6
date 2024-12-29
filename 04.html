@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="num"></p>
+    <button id="btn_sortear">Sortear</button>
+
+    <script>
+        let texto = document.getElementById("num");
+        let botao = document.getElementById("btn_sortear");
+
+        botao.addEventListener('click', () => {
+            let numAleatorio = Math.floor(Math.random() * 100) + 1;
+            texto.innerHTML = numAleatorio;
+        });
+    </script>
+</body>
+</html>

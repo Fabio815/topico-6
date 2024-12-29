@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="cliques"></p>
+    <button id="btn_clique">Aperte</button>
+
+    <script>
+        let texto = document.querySelector("#cliques");
+        let botao = document.getElementById("btn_clique");
+        let soma = 0;
+        botao.addEventListener('click', () => {
+            soma++;
+            texto.innerHTML = soma;
+        });
+    </script>
+</body>
+</html>

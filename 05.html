@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 10px;
+        }
+        #container_div{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            gap: 10px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="container_div">
+            <label for="minimo"></label>
+            <input type="text" id="minimo">
+            <label for="maximo"></label>
+            <input type="text" id="maximo">
+            <button id="btn_gerar">Gerar número</button>
+            <p id="num"></p>
+        </div>
+    </div>
+
+    <script>
+        let texto = document.getElementById("num");
+        let num1 = document.getElementById("minimo");
+        let num2 = document.getElementById("maximo");
+        let botao = document.getElementById("btn_gerar");
+
+        botao.addEventListener('click', () => {
+            let n1 = num1.value;
+            let n2 = num2.value;
+            let numAleatorio = Math.trunc(Math.random() * (parseInt(n1) - parseInt(n2)) + parseInt(n2)) + 1;
+
+            texto.innerHTML = numAleatorio;
+        });
+
+    </script>
+</body>
+</html>

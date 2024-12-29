@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 09</title>
+</head>
+<body>
+    <div>
+        <input id="palavra" type="text">
+        <button id="btn">Verificar</button>
+    </div>
+    <script>
+        let usuario = document.querySelector("#palavra");
+        function verificaPalin(palavras){
+            /*for(let i = 0; i < palavra.lenght; i++){
+                if(palavra[i] !== palavra[palavra -1 - i]){
+                    return false;
+                }
+            }*/
+           let palavraModificada = palavras.split("").reverse().join("");
+            if(palavraModificada === palavras){
+                return "É palin";
+            }
+            else{
+                return "Não";
+            }
+        }
+        let botao = document.querySelector("#btn");
+        botao.addEventListener('click', verificaPalin(palavra));
+
+    </script>
+</body>
+</html>

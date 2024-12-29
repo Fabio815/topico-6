@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Soma</h2>
+    <label for="a">Informa A</label>
+    <input type="text" id="a">
+
+    <label for="a">Informa B</label>
+    <input type="text" id="b">
+
+    <button id="botao">Soma</button>
+    <p id="result"></p>
+    <script>
+        let botao = document.querySelector("#botao");
+        botao.addEventListener('click', ()=>{
+            let num1 = document.querySelector("#a");
+            let num2 = document.querySelector("#b");
+            let p = document.querySelector("#result");
+            let soma = parseInt(num1.value) + parseInt(num2.value);
+            p.innerHTML = `Soma = ${soma}`;
+        });
+
+    </script>
+</body>
+</html>

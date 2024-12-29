@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+        }
+        div{
+            border: 2px solid black;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div id="01"></div>
+        <div id="02"></div>
+        <div id="03"></div>
+        <div id="04"></div>
+    </main>
+
+    <script>
+        const div1 = document.getElementById("01");
+        const div2 = document.getElementById("02");
+        const div3 = document.getElementById("03");
+        const div4 = document.getElementById("04");
+        document.addEventListener('keydown', () =>{
+            const cores = () =>{
+                    return Math.floor(Math.random() * 255) + 1;
+                }
+            if(event.code === "Space"){
+                let cor1 = `rgb(${cores()}, ${cores()}, ${cores()})`
+                div1.style.backgroundColor = cor1;
+                div1.innerHTML = cor1;
+
+                let cor2 = `rgb(${cores()}, ${cores()}, ${cores()})`
+                div2.style.backgroundColor = cor2;
+                div2.innerHTML = cor2;
+
+                let cor3 = `rgb(${cores()}, ${cores()}, ${cores()})`
+                div3.style.backgroundColor = cor3;
+                div3.innerHTML = cor3;
+
+                let cor4 = `rgb(${cores()}, ${cores()}, ${cores()})`
+                div4.style.backgroundColor = cor4;
+                div4.innerHTML = cor4;
+            }
+        })
+    </script>
+</body>
+</html>

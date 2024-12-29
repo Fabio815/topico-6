@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt_digitado">
+    <button id="btn_adicionar">Adicionar</button>
+    <p id="texto"></p>
+
+    <script>
+        const texto = document.getElementById("texto");
+        let digitado = document.getElementById("txt_digitado");
+
+        document.getElementById("btn_adicionar").addEventListener('click', ()=>{
+            let valor = digitado.value;
+            digitado.value = "";
+            let novoP = document.createElement("p");
+
+            novoP.innerHTML = valor;
+            texto.appendChild(novoP);
+        });
+    </script>
+</body>
+</html>
