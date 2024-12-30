@@ -8,9 +8,11 @@
     <style>
         body {
             padding: 0px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
         }
         .container {
-            height: 600px;
+            height: 550px;
             width: 400px;
             border: 1px solid black;
             position: relative;
@@ -22,14 +24,66 @@
         .calculadora {
             padding: 20px;
         }
+        #numeros{
+          display: grid;
+          gap: 10px;
+          grid-template-areas: 
+          'header'
+          'main'
+          'footer';
+        }
+
+        #header{
+          grid-area: "header";
+        }
+        #main{
+          grid-area: "main";
+          display: grid;
+          gap: 10px;
+          grid-template-areas: 
+          'num7 num8 num9 soma'
+          'num6 num5 num4 sub'
+          'num3 num2 num1 mult';
+        }
+        #footer{
+          grid-area: "footer";
+          display: grid;
+          gap: 10px;
+          grid-template-areas: 
+          'div zero branco resultado';
+        }
+        #main button{
+          height: 100px;
+        }
     </style>
   </head>
   <body>
     <main class="container">
         <div class="calculadora">
-            <input type="text" class="form-control" id="display" readonly>
             <div id="numeros">
-               
+              <div id="header">
+                <input style="height: 60px;" type="text" class="form-control" id="display" readonly>
+              </div>
+              <div id="main">
+                <button id="num7" type="button" class="btn btn-secondary">7</button>
+                <button id="num8"  type="button" class="btn btn-secondary">8</button>
+                <button id="num9"  type="button" class="btn btn-secondary">9</button>
+                <button id="soma"  type="button" class="btn btn-primary">+</button>
+                <button id="num6"  type="button" class="btn btn-secondary">6</button>
+                <button id="num5"  type="button" class="btn btn-secondary">5</button>
+                <button id="num4"  type="button" class="btn btn-secondary">4</button>
+                <button id="sub"  type="button" class="btn btn-primary">-</button>
+                <button id="num3"  type="button" class="btn btn-secondary">3</button>
+                <button id="num2"  type="button" class="btn btn-secondary">2</button>
+                <button id="num1"  type="button" class="btn btn-secondary">1</button>
+                <butto id="mult"  type="button" class="btn btn-primary">*</button>
+              </div>
+              <div id="footer">
+                <button style="height: 70px;" id="div" type="button" class="btn btn-secondary">/</button>
+                <button id="zero" type="button" class="btn btn-secondary">0</button>
+                <div id="branco" class="btn btn-secondary" style="background-color: white; border: none;" ></div>
+                <button id="resultado" type="button" class="btn btn-warning">=</button>
+              </div>
             </div>
         </div>
     </main>
