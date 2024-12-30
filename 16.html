@@ -24,7 +24,7 @@
         .calculadora {
             padding: 20px;
         }
-        #numeros{
+        #numeros {
           display: grid;
           gap: 10px;
           grid-template-areas: 
@@ -33,11 +33,11 @@
           'footer';
         }
 
-        #header{
-          grid-area: "header";
+        #header {
+          grid-area: header;
         }
-        #main{
-          grid-area: "main";
+        #main {
+          grid-area: main;
           display: grid;
           gap: 10px;
           grid-template-areas: 
@@ -45,15 +45,16 @@
           'num6 num5 num4 sub'
           'num3 num2 num1 mult';
         }
-        #footer{
-          grid-area: "footer";
+        #footer {
+          grid-area: footer;
           display: grid;
           gap: 10px;
           grid-template-areas: 
           'div zero branco resultado';
         }
-        #main button{
+        #main button {
           height: 100px;
+          text-align: center;
         }
     </style>
   </head>
@@ -62,31 +63,45 @@
         <div class="calculadora">
             <div id="numeros">
               <div id="header">
-                <input style="height: 60px;" type="text" class="form-control" id="display" readonly>
+                <input style="height: 60px; color: black; text-align: right;" type="text" class="form-control" id="display">
               </div>
               <div id="main">
-                <button id="num7" type="button" class="btn btn-secondary">7</button>
-                <button id="num8"  type="button" class="btn btn-secondary">8</button>
-                <button id="num9"  type="button" class="btn btn-secondary">9</button>
-                <button id="soma"  type="button" class="btn btn-primary">+</button>
-                <button id="num6"  type="button" class="btn btn-secondary">6</button>
-                <button id="num5"  type="button" class="btn btn-secondary">5</button>
-                <button id="num4"  type="button" class="btn btn-secondary">4</button>
-                <button id="sub"  type="button" class="btn btn-primary">-</button>
-                <button id="num3"  type="button" class="btn btn-secondary">3</button>
-                <button id="num2"  type="button" class="btn btn-secondary">2</button>
-                <button id="num1"  type="button" class="btn btn-secondary">1</button>
-                <butto id="mult"  type="button" class="btn btn-primary">*</button>
+                <button id="num7" type="button" class="btn btn-secondary" onclick="insirido('7')">7</button>
+                <button id="num8" type="button" class="btn btn-secondary" onclick="insirido('8')">8</button>
+                <button id="num9" type="button" class="btn btn-secondary" onclick="insirido('9')">9</button>
+                <button id="soma" type="button" class="btn btn-primary" onclick="insirido('+')">+</button>
+                <button id="num6" type="button" class="btn btn-secondary" onclick="insirido('6')">6</button>
+                <button id="num5" type="button" class="btn btn-secondary" onclick="insirido('5')">5</button>
+                <button id="num4" type="button" class="btn btn-secondary" onclick="insirido('4')">4</button>
+                <button id="sub" type="button" class="btn btn-primary" onclick="insirido('-')">-</button>
+                <button id="num3" type="button" class="btn btn-secondary" onclick="insirido('3')">3</button>
+                <button id="num2" type="button" class="btn btn-secondary" onclick="insirido('2')">2</button>
+                <button id="num1" type="button" class="btn btn-secondary" onclick="insirido('1')">1</button>
+                <button id="mult" type="button" class="btn btn-primary" onclick="insirido('*')">*</button>
               </div>
               <div id="footer">
-                <button style="height: 70px;" id="div" type="button" class="btn btn-secondary">/</button>
-                <button id="zero" type="button" class="btn btn-secondary">0</button>
-                <div id="branco" class="btn btn-secondary" style="background-color: white; border: none;" ></div>
+                <button style="height: 70px;" id="div" type="button" class="btn btn-primary" onclick="insirido('/')">/</button>
+                <button id="zero" type="button" class="btn btn-secondary" onclick="insirido('0')">0</button>
+                <button id="branco" class="btn btn-secondary" onclick="limpar()">C</button>
                 <button id="resultado" type="button" class="btn btn-warning">=</button>
               </div>
             </div>
         </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        const display = document.getElementById('display');
+        function insirido(valor) {
+          display.value += valor;
+        }
+
+        function limpar() {
+          document.getElementById('display').value = '';
+        }
+
+        document.getElementById('resultado').addEventListener('click', () =>{
+          let res = eval(display.value);
+          display.value = res;
+        });
+    </script>
   </body>
 </html>
